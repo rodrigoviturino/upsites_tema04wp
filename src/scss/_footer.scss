@@ -1,0 +1,201 @@
+.footer {
+    padding: map-get($spacers, 4) 0 0;
+
+    &__logo {
+        display: block;
+        text-align: center;
+        padding: map-get($spacers, 5) 0;
+    }
+
+    &__contact {
+
+        @include media-breakpoint-only (xs) {
+            text-align: center;
+        }
+
+        .title {
+            margin-bottom: map-get($spacers, 3);
+            @include responsive-font-size(15px);
+        }
+
+        ul {
+            li {
+                padding: map-get($spacers, 2) 0;
+                a {
+                    color: $gray-300;
+                    font-weight: $font-weight-normal;
+                    text-decoration: none;
+                    @include responsive-font-size(13px);
+                    
+                    i {
+                        color: $purple;
+                        padding-right: map-get($spacers, 3);
+                    }
+                }
+
+            }
+        }
+    }
+
+    &__company {
+
+        @include media-breakpoint-only (xs) {
+            text-align: center;
+        }
+
+        .title {
+            margin-bottom: map-get($spacers, 3);
+            @include responsive-font-size(15px);  
+        }
+        ul {
+            li {
+                padding: map-get($spacers, 1) 0;
+                a {
+                    color: $gray-300;
+                    font-weight: $font-weight-normal;
+                    text-decoration: none;
+                    @include responsive-font-size(13px);
+                    i {
+                        color: $purple;
+                        padding-right: map-get($spacers, 3);
+                    }
+                }
+
+            }
+        }
+    }
+
+    &__social {
+
+        @include media-breakpoint-only (xs) {
+            text-align: center;
+        }
+
+        .title {
+            margin-bottom: map-get($spacers, 3);
+            @include responsive-font-size(15px);
+        }
+        ul {
+            li {
+                padding: map-get($spacers, 1) 0;
+                a {
+                    color: $gray-300;
+                    font-weight: $font-weight-normal;
+                    text-decoration: none;
+                    @include responsive-font-size(13px);
+                    i {
+                        color: $purple;
+                        padding-right: map-get($spacers, 3);
+                    }
+                }
+
+            }
+        }
+    }
+
+    &__address {
+        @include media-breakpoint-only (xs) {
+            text-align: center;
+        }
+
+        .title {
+            margin-bottom: map-get($spacers, 3);
+            @include responsive-font-size(15px);
+        }
+        span {
+            color: $gray-400;
+            font-weight: $font-weight-normal;
+            display: inline-block;
+            @include responsive-font-size(13px);
+
+            &.estado {
+                margin-bottom: map-get($spacers,3);
+            }
+            
+        }
+
+        ul {
+            @include media-breakpoint-only (xs) {
+                justify-content: center;
+            }
+
+            li {
+                border-radius: 50px;
+                height: 33px;
+                width: 32px;
+                background-color: gray;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: map-get($spacers, 3 );
+
+                &:first-child {
+                    background: rgb(99,98,215);
+                    background: linear-gradient(40deg, rgba(99,98,215,1) 0%, rgba(255,143,226,1) 100%); 
+                    
+                    a {
+                        .fa-facebook-f {
+                            color: $white;                    
+                        }
+                    }
+                }
+                &:nth-child(2) {
+                    background: rgb(0,181,108);
+                    background: linear-gradient(40deg, rgba(0,181,108,1) 0%, rgba(29,190,117,1) 30%, rgba(104,213,140,1) 73%, rgba(158,230,157,1) 100%); 
+                    color: $white;
+
+                    a {
+                        .fa-skype {
+                            color: $white;                    
+                        }
+                    }
+                }
+                &:nth-child(3){
+                    background: rgb(255,154,182);
+                    background: linear-gradient(40deg, rgba(255,154,182,1) 0%, rgba(240,50,149,1) 100%); 
+                    color: $white;
+
+                    a {
+                        .fa-linkedin-in {
+                            color: $white;                    
+                        }
+                    }
+                }
+                &:last-child{
+                    background: rgb(240,147,118);
+                    background: linear-gradient(40deg, rgba(240,147,118,1) 0%, rgba(240,219,121,1) 100%); 
+                    white-space: $white;
+
+                    a {
+                        .fa-instagram {
+                            color: $white;                    
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    &__copyright {
+        background-image: url('<?= get_template_directory_uri(); ?> /images/bg-footer.png ');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 110px 0;
+
+        @include media-breakpoint-only (xs) {
+            background-position: top;
+            background-size: contain;
+            padding: map-get($spacers, 5) 0 10px;
+        }
+
+        .text {
+            text-align: center;
+            color: $gray-300;
+            text-decoration: underline;
+        }
+    }
+
+}

@@ -1,0 +1,136 @@
+.header {
+
+    // Ativador Menu Sticky
+    &.scrollHide {
+        transition: all 0.7s;
+        background-color: $gray-800;
+        position: fixed;
+        top: map-get($spacers, 0);
+        left: map-get($spacers, 0);
+        z-index: 10;
+        width: 100%;
+
+        .header__rowBottom__wrapper {
+            padding: map-get($spacers, 1) 0;
+        }
+
+        .navbar{
+           &-nav {
+
+               .menu-item {
+                   &.active {
+                       color: $red !important;
+                   }
+                   a {
+                       color: $white;
+                    }
+
+               }
+           }
+        }
+
+        @include media-breakpoint-only(xs){
+            // background-color: $purple;
+
+            .navbar-toggler {
+                background-color: $white;
+            }
+        }   
+        @include media-breakpoint-only(md){
+            .navbar-toggler {
+                background-color: $white;
+            }
+        }   
+
+    }
+// end Ativador Menu Sticky
+
+    .navbar {
+
+        @include media-breakpoint-only(xs){
+            padding:  map-get($spacers, 2) 0 map-get($spacers, 3);
+        }
+
+        &-nav {
+
+            .menu-item {
+                a {
+                    color: $gray-400;
+                    font-weight: $font-weight-normal;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    transition: $transition-base;
+                    display: inline-block;
+                    padding: 0  map-get($spacers, 2);
+                    margin: 0  map-get($spacers, 2);
+                    @include responsive-font-size(16px);
+                // position: absolute;
+
+                        @include media-breakpoint-only(xs) { 
+                            margin: map-get($spacers, 2) 0;
+                        }
+
+                    &:hover {
+                        color: $purple;
+                        transition: all 0.7s;
+                        position: relative;
+
+                        &:after{
+                            content: '';
+                            position: absolute;
+                            display: block;
+                            margin: 0 auto;
+                            background: rgb(99,98,215);
+                            background: linear-gradient(40deg, rgba(99,98,215,1) 20%, rgba(255,143,226,1) 100%); 
+                            border-radius: 50px;
+                            height: 10px;
+                            width: 10px;
+                            right: 30px;
+                        }
+                    }
+                }
+            }
+            
+        }
+        // Botão Menu Responsivo
+        &-toggler{
+            @include responsive-font-size(16px);
+        }
+
+        &__btn-contact {
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(99,98,215,1) 0%, rgba(255,143,226,1) 100%); 
+            color: $white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+
+            @include media-breakpoint-only (xs){
+                padding: map-get($spacers , 2);
+                @include responsive-font-size(12px);
+            }
+
+        }
+
+        .navbar-brand {
+
+            img {
+                width: 100%;
+            }
+
+            @include media-breakpoint-only (xs){
+                display: block;
+                text-align: center;
+                margin-bottom: map-get($spacers, 1);
+                margin-right: map-get($spacers, 0);
+
+
+                img {
+                    width: 100px;
+                }
+            }
+        }
+    }
+
+}
