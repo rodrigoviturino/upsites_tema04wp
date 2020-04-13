@@ -2,9 +2,12 @@
     padding: map-get($spacers, 4) 0 0;
 
     &__logo {
-        display: block;
-        text-align: center;
-        padding: map-get($spacers, 5) 0;
+        
+        .navbar-brand {
+            display: block;
+            text-align: center;
+            padding: map-get($spacers, 5) 0;
+        }
     }
 
     &__contact {
@@ -14,7 +17,7 @@
         }
 
         .title {
-            margin-bottom: map-get($spacers, 3);
+            margin-bottom: map-get($spacers, 2);
             @include responsive-font-size(15px);
         }
 
@@ -41,10 +44,11 @@
 
         @include media-breakpoint-only (xs) {
             text-align: center;
+            padding-bottom: map-get($spacers, 3);
         }
 
         .title {
-            margin-bottom: map-get($spacers, 3);
+            margin-bottom: map-get($spacers, 2);
             @include responsive-font-size(15px);  
         }
         ul {
@@ -69,10 +73,11 @@
 
         @include media-breakpoint-only (xs) {
             text-align: center;
+            margin-bottom: map-get($spacers, 3);
         }
 
         .title {
-            margin-bottom: map-get($spacers, 3);
+            margin-bottom: map-get($spacers, 1);
             @include responsive-font-size(15px);
         }
         ul {
@@ -99,7 +104,7 @@
         }
 
         .title {
-            margin-bottom: map-get($spacers, 3);
+            margin-bottom: map-get($spacers, 2);
             @include responsive-font-size(15px);
         }
         span {
@@ -179,7 +184,6 @@
     }
 
     &__copyright {
-        background-image: url('<?= get_template_directory_uri(); ?> /images/bg-footer.png ');
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -187,7 +191,7 @@
 
         @include media-breakpoint-only (xs) {
             background-position: top;
-            background-size: contain;
+            background-size: cover;
             padding: map-get($spacers, 5) 0 10px;
         }
 
