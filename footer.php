@@ -1,6 +1,6 @@
 <footer class="footer">
 
-<section class="footer-logo">
+<section class="footer__logo">
 
   <div class="container">
 
@@ -9,9 +9,9 @@
         $img_logo = get_theme_mod('up_logo_footer') ;
             if(get_theme_mod('up_logo_footer') ) : 
     ?>
-        <a class="navbar-brand m-auto order-1 order-lg-2" href="<?php bloginfo('url');?> ">
-            <img src="<?= $img_logo ?> " class='' alt="<?php echo get_theme_mod('up_desc_logo_footer'); ?> ">
-        </a>
+      <a class="navbar-brand tt m-auto order-1 order-lg-2" href="<?php bloginfo('url');?> ">
+          <img src="<?= $img_logo ?> " class='' alt="<?php echo get_theme_mod('up_desc_logo_footer'); ?> ">
+      </a>
     <?php endif; ?>
     <!-- end Logo -->
   </div>
@@ -23,7 +23,19 @@
     <div class="row">
 
       <div class="col-md-3 footer__contact">
-        <h3 class="title"><?= get_theme_mod('up_title_contact_footer'); ?></h3>
+        <!-- <h3 class="title"><?= get_theme_mod('up_title_contact_footer'); ?></h3> -->
+      <?php
+        $value = get_theme_mod( 'up_title_contact_footer', [] );
+
+        if ( isset( $value['font-family'] ) ) {
+          echo '<h3 class="title">' . get_theme_mod('up_title_contact_footer') .  sprintf( esc_html__( 'Font Family: %s', 'kirki' ), $value['font-family'] ) . '</h3>';
+        } 
+      ?>
+        <h3 class="title" id="ttt"><?= get_theme_mod('up_title_contact_footer'); ?></h3>
+        
+
+
+
         <ul class="list-unstyled">
 
           <li>
@@ -42,7 +54,7 @@
 
           <li>
             <a href="mailto: <?= get_theme_mod('up_link_email_contact_footer'); ?> ">
-              <i class="far fa-envelope"></i>
+            <i class="fas fa-envelope"></i>
               <?= get_theme_mod('up_text_email_contact_footer'); ?>
             </a>
           </li>
@@ -120,8 +132,11 @@
 
   </div> 
   <!-- end Container -->
+  <?php 
+    $bg_footer = get_theme_mod('up_image_bg_footer');
+  ?>
 
-  <section class="footer__copyright">
+  <section class="footer__copyright" style='background-image:url( <?= $bg_footer ?>);' >
     <div class="container">
       <p class="text"> <?= get_theme_mod('up_copyright'); ?> - <?= get_theme_mod('up_company_copyright'); ?>  - <?= Date('Y'); ?></p>
     </div>

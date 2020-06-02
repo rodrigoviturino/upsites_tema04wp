@@ -21,4 +21,13 @@ function up_after_setup(){
     register_nav_menu('main-menu', ('Menu Principal') );
     register_nav_menu('footer-menu', ('Footer Menu') );
     register_nav_menu('footer-menu-social', ('Social Menu Footer') );
+
+
+    Kirki::add_config( $config_id, $args );
+
+    Kirki::add_config( 'theme_config_id', array(
+        'capability'    => 'edit_theme_options',
+        'option_type'   => 'theme_mod',
+    ) );
+    
 }

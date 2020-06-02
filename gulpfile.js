@@ -7,6 +7,7 @@ const rollup = require('gulp-better-rollup');
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
 const cleanCSS = require('gulp-clean-css');
@@ -21,18 +22,18 @@ const sitemap = require('gulp-sitemap');
 const pretty = require('gulp-pretty-data');
 
 // Mustache
-function html_render() {
-    return gulp.src("src/html/*.html")
-        .pipe(mustache('./src/html/variables.json', {}, {})) // mustache(view, options, partials)
-        .pipe(version({
-            'value': '%MDS%',
-            'append': {
-                'key': 'v',
-                'to': ['css', 'js', 'jpg', 'png']
-            }
-        }))
-        .pipe(gulp.dest("./assets/html"));
-}
+// function html_render() {
+//     return gulp.src("src/html/*.html")
+//         .pipe(mustache('./src/html/variables.json', {}, {})) // mustache(view, options, partials)
+//         .pipe(version({
+//             'value': '%MDS%',
+//             'append': {
+//                 'key': 'v',
+//                 'to': ['css', 'js', 'jpg', 'png']
+//             }
+//         }))
+//         .pipe(gulp.dest("./assets/html"));
+// }
 
 // HTML
 function html_minifier() {
@@ -56,6 +57,10 @@ function styles() {
                 './node_modules/@fortawesome/fontawesome-free/scss/'
             ]
         }).on('error', sass.logError))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(rename({ suffix: '.min' }))
         .pipe(cleanCSS())
         .pipe(sourcemaps.write('./'))

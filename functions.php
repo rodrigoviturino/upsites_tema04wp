@@ -4,6 +4,8 @@
     require get_template_directory().'/include/setup.php';
     require get_template_directory().'/include/customizer/theme-customizer.php';
 
+    require get_template_directory().'/include/kirki-master/kirki.php';
+
 
 // HOOKS
     add_action('after_setup_theme' , 'up_after_setup');
@@ -11,6 +13,7 @@
 
     // Customizer Personalizar
     add_action('customize_register', 'up_customize_register');
+    add_action('customize_register', 'kirki');
 
 
     

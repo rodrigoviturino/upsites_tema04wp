@@ -2,11 +2,13 @@
 // Footer informações das colunas
 
 function up_footer_customizer( $wp_customize ) {
- 
+
     // Settings 
     // Logo
     $wp_customize->add_setting( 'up_logo_footer', [ 'default' => "" ]);
     $wp_customize->add_setting( 'up_desc_logo_footer', [ 'default' => "" ]);
+
+    $wp_customize->add_setting( 'up_image_bg_footer', [ 'default' => "" ]);
     
     // Informações
         // Column Contato
@@ -353,6 +355,20 @@ function up_footer_customizer( $wp_customize ) {
                 'section' => 'up_footer_section',
                 'settings' => 'up_company_copyright',
                 'type' => 'text'
+            ]
+        )
+    );
+
+    // Imagem Background Footer
+    $wp_customize->add_control(
+        new WP_Customize_Image_Control (
+            $wp_customize,
+
+            'up_image_bg_footer',
+            [
+                'label' => 'Imagem de Fundo Footer',
+                'section' => 'up_footer_section',
+                'settings' => 'up_image_bg_footer',
             ]
         )
     );
